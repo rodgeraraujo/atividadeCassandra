@@ -1,0 +1,20 @@
+CREATE KEYSPACE atividadeCassandra WITH replication = {'class':'SimpleStrategy','replication_factor':1};
+
+USE atividadeCassandra;
+
+CREATE TYPE produto(
+   codigo INT,
+   descricao TEXT,
+   preco FLOAT
+);
+
+CREATE TYPE itemVenda(
+	produto produto,
+	quantidade int
+);
+
+CREATE TABLE venda(
+    codigo INT PRIMARY KEY,
+    itens TEXT,
+    dataHora TEXT
+);
